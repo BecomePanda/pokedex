@@ -1,3 +1,3 @@
-export const captalize = (str) => {
-    return str.charAt(0).toUpperCase() + str.slice(1);
+export const captalize = (name) => {
+  return name.charAt(0).toUpperCase() + name.slice(1);
 };

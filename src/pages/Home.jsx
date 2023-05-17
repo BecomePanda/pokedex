@@ -31,7 +31,11 @@ export const Home = ({ setPokemonData }) => {
       getPokemons();
     }
     for (var i in pokemons) {
-      if (pokemons[i].data.name.includes(name)) {
+      if (
+        pokemons[i].data.name.includes(
+          name.charAt(0).toLowerCase() + name.slice(1)
+        )
+      ) {
         filteredPokemons.push(pokemons[i]);
       }
     }
@@ -55,7 +59,7 @@ export const Home = ({ setPokemonData }) => {
               <Grid item xs={12} sm={6} md={4} lg={2} key={key}>
                 <Box onClick={() => pokemonPickHandler(pokemon.data)}>
                   <PokemonCard
-                    name={pokemon.data.name}
+                    name={captalize(pokemon.data.name)}
                     image={pokemon.data.sprites.front_default}
                     types={pokemon.data.types}
                   />

@@ -10,6 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useNavigate } from "react-router";
+import { captalize } from "../utils/captalize";
 
 export const Profile = ({ pokemonData }) => {
   const { name, sprites, moves } = pokemonData || {};
@@ -37,7 +38,7 @@ export const Profile = ({ pokemonData }) => {
             alignItems="center"
             p={5}
           >
-            <Typography variant="h5">{name}</Typography>
+            <Typography variant="h5">{captalize(name)}</Typography>
             <Box
               display="flex"
               alignItems="center"
@@ -85,7 +86,7 @@ export const Profile = ({ pokemonData }) => {
                   <Chip
                     key={key}
                     sx={{ m: "5px" }}
-                    label={moveData.move.name}
+                    label={captalize(moveData.move.name)}
                   />
                 ))}
               </Box>

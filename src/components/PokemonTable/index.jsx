@@ -8,14 +8,18 @@ import Paper from "@mui/material/Paper";
 import { typeHandler } from "../../utils";
 
 export default function PokemonTable({ pokemonData }) {
-  const { height, weight, types } = pokemonData;
+  const { id, height, weight, types } = pokemonData;
   return (
     <TableContainer
       component={Paper}
-      sx={{ height: "fit-content", maxWidth: "250px", boxShadow: "none"}}
+      sx={{ height: "fit-content", maxWidth: "250px", boxShadow: "none" }}
     >
       <Table size="small" aria-label="a dense table">
         <TableBody>
+          <TableRow sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
+            <TableCell>ID</TableCell>
+            <TableCell>{"#" + id}</TableCell>
+          </TableRow>
           <TableRow sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
             <TableCell>Height</TableCell>
             <TableCell>{height + "cm"}</TableCell>
@@ -26,7 +30,7 @@ export default function PokemonTable({ pokemonData }) {
           </TableRow>
           <TableRow sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
             <TableCell>{"Type"}</TableCell>
-            <TableCell>{typeHandler(types)}</TableCell>
+            <TableCell sx={{textTransform: "uppercase"}}>{typeHandler(types)}</TableCell>
           </TableRow>
         </TableBody>
       </Table>
