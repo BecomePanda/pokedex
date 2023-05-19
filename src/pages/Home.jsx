@@ -7,22 +7,28 @@ import axios from "axios";
 import { Skeletons } from "../components/Skeletons";
 import { useNavigate } from "react-router";
 import { captalize } from "../utils/captalize";
+import PokePagination from "../components/Pagination";
 
 export const Home = ({ setPokemonData }) => {
   const [pokemons, setPokemons] = useState([]);
+  const [count, setCount] = useState(10);
   const navigate = useNavigate();
 
   useEffect(() => {
     getPokemons();
   }, []);
-  const getPokemons = () => {
-    var endpoints = [];
-    for (var i = 1; i < 152; i++) {
-      endpoints.push(`https://pokeapi.co/api/v2/pokemon/${i}`);
-    }
+  const getPokemons = (offset = 1) => {
+    const limit = 24;
     axios
-      .all(endpoints.map((endpoint) => axios.get(endpoint)))
-      .then((res) => setPokemons(res));
+      .get(
+        `https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${
+          (offset - 1) * limit
+        }`
+      )
+      .then((res) => {
+        setPokemons(res.data.results);
+        setCount(Math.floor(res.data.count/limit));
+      });
   };
 
   const pokemonFilter = (name) => {
@@ -42,8 +48,8 @@ export const Home = ({ setPokemonData }) => {
     setPokemons(filteredPokemons);
   };
 
-  const pokemonPickHandler = (pokemonData) => {
-    setPokemonData(pokemonData);
+  const pokemonPickHandler = (url) => {
+    setPokemonData({ url });
     navigate("/profile");
   };
 
@@ -57,17 +63,17 @@ export const Home = ({ setPokemonData }) => {
           ) : (
             pokemons.map((pokemon, key) => (
               <Grid item xs={12} sm={6} md={4} lg={2} key={key}>
-                <Box onClick={() => pokemonPickHandler(pokemon.data)}>
+                <Box onClick={() => pokemonPickHandler(pokemon.url)}>
                   <PokemonCard
-                    name={captalize(pokemon.data.name)}
-                    image={pokemon.data.sprites.front_default}
-                    types={pokemon.data.types}
+                    name={captalize(pokemon.name)}
+                    url={pokemon.url}
                   />
                 </Box>
               </Grid>
             ))
           )}
         </Grid>
+        <PokePagination getPokemons={getPokemons} count={count} />
       </Container>
     </div>
   );

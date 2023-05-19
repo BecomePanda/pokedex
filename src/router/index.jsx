@@ -5,6 +5,7 @@ import { Profile } from "../pages/Profile";
 
 export const Router = () => {
   const [pokemonData, setPokemonData] = useState();
+  console.log(pokemonData);
   return (
     <BrowserRouter>
       <Routes>

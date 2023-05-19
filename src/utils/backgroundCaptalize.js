@@ -13,6 +13,8 @@ import RockBG from "../assets/rock_bg.jpg";
 import GhostBG from "../assets/ghost_bg.jpg";
 import IceBG from "../assets/ice_bg.jpg";
 import DragonBG from "../assets/dragon_bg.jpg";
+import SteelBG from "../assets/steel_bg.jpg";
+import DarkBG  from "../assets/dark_bg.jpg";
 
 export const backgroundCaptalize = (types) => {
   if (types == null) {
@@ -50,6 +52,10 @@ export const backgroundCaptalize = (types) => {
       return IceBG;
     case "dragon":
       return DragonBG;
+    case "steel":
+      return SteelBG;
+    case "dark":
+      return DarkBG;
     default:
       return;
   }

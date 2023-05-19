@@ -1,5 +1,5 @@
-export const typeCaptalize = (types) => {
-  switch (types[0].type.name) {
+export const typeCaptalize = (type) => {
+  switch (type.name) {
     case "electric":
       return "#E5DE00";
     case "water":
@@ -30,6 +30,8 @@ export const typeCaptalize = (types) => {
       return "#4479c0";
     case "dragon":
       return "#29021A";
+    case "flying":
+      return "#CBC3E3";
     default:
       return;
   }
