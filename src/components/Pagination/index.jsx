@@ -17,12 +17,14 @@ export default function PokePagination({ getPokemons, count }) {
           justifyContent: "center",
           alignItems: "center",
           marginTop: 5,
+          fontFamily: "PT Sans Narrow" ,
+          letterSpacing: 2, 
         }}
       >
         Page - {page}{" "}
       </Typography>
       <Pagination
-        sx={{ display: "flex", justifyContent: "center", alignItems: "center", marginBottom: 5, }}
+        sx={{ display: "flex", justifyContent: "center", alignItems: "center", marginBottom: 5}}
         count={count}
         variant="outlined"
         color="primary"
