@@ -6,11 +6,11 @@ import PokemonCard from "../components/PokemonCard/index";
 import axios from "axios";
 import { Skeletons } from "../components/Skeletons";
 import { useNavigate } from "react-router";
-import { captalize } from "../utils/captalize";
 import PokePagination from "../components/Pagination";
 
 export const Home = ({ setPokemonData }) => {
   const [pokemons, setPokemons] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
   const [count, setCount] = useState(10);
   const navigate = useNavigate();
 
@@ -27,20 +27,18 @@ export const Home = ({ setPokemonData }) => {
       )
       .then((res) => {
         setPokemons(res.data.results);
-        setCount(Math.floor(res.data.count/limit));
+        setCount(Math.floor(res.data.count / limit));
       });
   };
 
   const pokemonFilter = (name) => {
     var filteredPokemons = [];
-    if (name == "") {
-      getPokemons();
+    if (name === "") {
+      getPokemons(currentPage);
     }
     for (var i in pokemons) {
       if (
-        pokemons[i].data.name.includes(
-          name.charAt(0).toLowerCase() + name.slice(1)
-        )
+        pokemons[i].name.includes(name.charAt(0).toLowerCase() + name.slice(1))
       ) {
         filteredPokemons.push(pokemons[i]);
       }
@@ -64,16 +62,18 @@ export const Home = ({ setPokemonData }) => {
             pokemons.map((pokemon, key) => (
               <Grid item xs={12} sm={6} md={4} lg={2} key={key}>
                 <Box onClick={() => pokemonPickHandler(pokemon.url)}>
-                  <PokemonCard
-                    name={captalize(pokemon.name)}
-                    url={pokemon.url}
-                  />
+                  <PokemonCard name={pokemon.name} url={pokemon.url} />
                 </Box>
               </Grid>
             ))
           )}
         </Grid>
-        <PokePagination getPokemons={getPokemons} count={count} />
+        <PokePagination
+          getPokemons={getPokemons}
+          count={count}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
       </Container>
     </div>
   );

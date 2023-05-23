@@ -70,6 +70,7 @@ export default function Navbar({ pokemonFilter, hideSearch }) {
                   <SearchIcon />
                 </SearchIconWrapper>
                 <StyledInputBase
+                  sx={{ fontFamily: "PT Sans Narrow", letterSpacing: 2 }}
                   placeholder="Search…"
                   inputProps={{ "aria-label": "search" }}
                 />

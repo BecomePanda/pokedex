@@ -1,12 +1,12 @@
 import * as React from "react";
 import { Pagination, Stack, Typography } from "@mui/material";
 
-export default function PokePagination({ getPokemons, count }) {
-  const [page, setPage] = React.useState(1);
+export default function PokePagination({ getPokemons, count, currentPage, setCurrentPage }) {
+  
 
   const handleChange = (event, value) => {
     getPokemons(value);
-    setPage(value);
+    setCurrentPage(value);
   };
 
   return (
@@ -21,14 +21,14 @@ export default function PokePagination({ getPokemons, count }) {
           letterSpacing: 2, 
         }}
       >
-        Page - {page}{" "}
+        Page - {currentPage}{" "}
       </Typography>
       <Pagination
         sx={{ display: "flex", justifyContent: "center", alignItems: "center", marginBottom: 5}}
         count={count}
         variant="outlined"
         color="primary"
-        page={page}
+        page={currentPage}
         onChange={handleChange}
       />
     </Stack>

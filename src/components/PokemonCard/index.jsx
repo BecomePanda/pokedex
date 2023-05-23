@@ -76,7 +76,7 @@ export default function PokemonCard({ name, url }) {
         <CardContent>
           <Box display="flex" justifyContent="space-evenly" alignItems="center">
             <Typography
-              sx={{ letterSpacing: 2, fontFamily: "PT Sans Narrow" }}
+              sx={{ letterSpacing: 2, fontFamily: "PT Sans Narrow", textTransform: 'capitalize' }}
               gutterBottom
               variant="h5"          
               component="div"

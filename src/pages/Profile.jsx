@@ -27,7 +27,7 @@ export const Profile = ({ pokemonData }) => {
     });
   };
 
-  console.log({url, pokemonData});
+  console.log({ url, pokemonData });
 
   useEffect(() => {
     if (!pokemonData) {
@@ -57,7 +57,16 @@ export const Profile = ({ pokemonData }) => {
             alignItems="center"
             p={5}
           >
-            <Typography variant="h5">{captalize(pokemon.name)}</Typography>
+            <Typography
+              variant="h5"
+              sx={{
+                letterSpacing: 2,
+                fontFamily: "PT Sans Narrow",
+                textTransform: "capitalize",
+              }}
+            >
+              {pokemon.name}
+            </Typography>
             <Box
               display="flex"
               alignItems="center"
@@ -77,7 +86,14 @@ export const Profile = ({ pokemonData }) => {
               ></Box>
               <PokemonTable pokemonData={pokemon} />
             </Box>
-            <Box width="100%">
+            <Box
+              width="100%"
+              sx={{
+                letterSpacing: 2,
+                fontFamily: "PT Sans Narrow",
+                textTransform: "capitalize",
+              }}
+            >
               <Divider> Variations </Divider>
               <Box display="flex" justifyContent="space-between">
                 <Box
@@ -104,8 +120,13 @@ export const Profile = ({ pokemonData }) => {
                 {pokemon.moves.map((moveData, key) => (
                   <Chip
                     key={key}
-                    sx={{ m: "5px" }}
-                    label={captalize(moveData.move.name)}
+                    sx={{
+                      m: "5px",
+                      fontFamily: "PT Sans Narrow",
+                      letterSpacing: 2,
+                      textTransform: "capitalize",
+                    }}
+                    label={moveData.move.name}
                   />
                 ))}
               </Box>
