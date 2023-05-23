@@ -10,30 +10,25 @@ import { typeCaptalize } from "../../utils/typeCaptalize";
 import axios from "axios";
 
 function ChipType({ types }) {
-  return types.map(
-    (type) => (
-      console.log(type),
-      (
-        <Chip
-          sx={{
-            display: "flex",
-            backgroundColor: typeCaptalize(type.type),
-            border: 2,
-            borderColor: "black",
-            color: "#FFF",
-            fontWeight: "bold",
-            textTransform: "uppercase",
-            letterSpacing: 1,
-            fontFamily: "PT Sans Narrow",
-            textShadow:
-              "2px 2px 4px rgba(0, 0, 0, 1), -2px -2px 4px rgba(0, 0, 0, 1)",
-          }}
-          variant="filled"
-          label={type.type.name}
-        />
-      )
-    )
-  );
+  return types.map((type) => (
+    <Chip
+      sx={{
+        display: "flex",
+        backgroundColor: typeCaptalize(type.type),
+        border: 2,
+        borderColor: "black",
+        color: "#FFF",
+        fontWeight: "bold",
+        textTransform: "uppercase",
+        letterSpacing: 1,
+        fontFamily: "PT Sans Narrow",
+        textShadow:
+          "2px 2px 4px rgba(0, 0, 0, 1), -2px -2px 4px rgba(0, 0, 0, 1)",
+      }}
+      variant="filled"
+      label={type.type.name}
+    />
+  ));
 }
 
 export default function PokemonCard({ name, url }) {
@@ -76,16 +71,26 @@ export default function PokemonCard({ name, url }) {
         <CardContent>
           <Box display="flex" justifyContent="space-evenly" alignItems="center">
             <Typography
-              sx={{ letterSpacing: 2, fontFamily: "PT Sans Narrow", textTransform: 'capitalize' }}
+              sx={{
+                letterSpacing: 2,
+                fontFamily: "PT Sans Narrow",
+                textTransform: "capitalize",
+              }}
               gutterBottom
-              variant="h5"          
+              variant="h5"
               component="div"
             >
               {name}
             </Typography>
           </Box>
           <Divider />
-          <Box sx={{ display: "flex", justifyContent: "space-around", marginTop: 2 }}>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-around",
+              marginTop: 2,
+            }}
+          >
             <ChipType types={pokemon.types} />
           </Box>
         </CardContent>

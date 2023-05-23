@@ -32,6 +32,8 @@ export const typeCaptalize = (type) => {
       return "#29021A";
     case "flying":
       return "#CBC3E3";
+    case "dark":
+      return "#432616";
     default:
       return;
   }
