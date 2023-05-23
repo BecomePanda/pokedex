@@ -17,20 +17,20 @@ export default function PokemonTable({ pokemonData }) {
       <Table size="small" aria-label="a dense table">
         <TableBody>
           <TableRow sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
-            <TableCell>ID</TableCell>
-            <TableCell>{"#" + id}</TableCell>
+            <TableCell sx={{ letterSpacing: 2, fontFamily: "PT Sans Narrow", textTransform: 'capitalize' }}>ID</TableCell>
+            <TableCell sx={{ letterSpacing: 2, fontFamily: "PT Sans Narrow", textTransform: 'capitalize' }}>{"#" + id}</TableCell>
           </TableRow>
           <TableRow sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
-            <TableCell>Height</TableCell>
-            <TableCell>{height + "cm"}</TableCell>
+            <TableCell sx={{ letterSpacing: 2, fontFamily: "PT Sans Narrow", textTransform: 'capitalize' }}>Height</TableCell>
+            <TableCell sx={{ letterSpacing: 2, fontFamily: "PT Sans Narrow", textTransform: 'capitalize' }}>{height + "cm"}</TableCell>
           </TableRow>
           <TableRow sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
-            <TableCell>Weight</TableCell>
-            <TableCell>{weight + "g"}</TableCell>
+            <TableCell sx={{ letterSpacing: 2, fontFamily: "PT Sans Narrow", textTransform: 'capitalize' }}>Weight</TableCell>
+            <TableCell sx={{ letterSpacing: 2, fontFamily: "PT Sans Narrow", textTransform: 'capitalize' }}>{weight + "g"}</TableCell>
           </TableRow>
           <TableRow sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
-            <TableCell>{"Type"}</TableCell>
-            <TableCell sx={{textTransform: "uppercase"}}>{typeHandler(types)}</TableCell>
+            <TableCell sx={{ letterSpacing: 2, fontFamily: "PT Sans Narrow", textTransform: 'capitalize' }}>{"Type"}</TableCell>
+            <TableCell sx={{textTransform: "uppercase",  letterSpacing: 2, fontFamily: "PT Sans Narrow"}}>{typeHandler(types)}</TableCell>
           </TableRow>
         </TableBody>
       </Table>
