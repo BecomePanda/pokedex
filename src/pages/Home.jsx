@@ -74,6 +74,7 @@ export const Home = ({ setPokemonData }) => {
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
         />
+        <Box sx={{ pb: 4, marginTop: 1}}></Box>
       </Container>
     </div>
   );

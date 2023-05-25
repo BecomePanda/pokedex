@@ -8,6 +8,7 @@ import { CardActionArea, Chip, CircularProgress, Divider } from "@mui/material";
 import { backgroundCaptalize } from "../../utils/backgroundCaptalize";
 import { typeCaptalize } from "../../utils/typeCaptalize";
 import axios from "axios";
+import Pokeico from "../../assets/pokeico.png";
 
 function ChipType({ types }) {
   return types.map((type) => (
@@ -69,7 +70,7 @@ export default function PokemonCard({ name, url }) {
           ></img>
         </CardMedia>
         <CardContent>
-          <Box display="flex" justifyContent="space-evenly" alignItems="center">
+          <Box display="flex" justifyContent="space-evenly" alignItems="center" flexDirection="column">
             <Typography
               sx={{
                 letterSpacing: 2,
@@ -82,8 +83,12 @@ export default function PokemonCard({ name, url }) {
             >
               {name}
             </Typography>
+            <Box display="flex" justifyContent="center" alignItems="center" flexDirection="row">
+            <img style={{width: 20, marginRight: 5}} src={Pokeico}></img>
+            <Typography>{"#" + pokemon.id}</Typography>
+            </Box>
           </Box>
-          <Divider />
+          <Divider sx={{marginTop: 1}}/>
           <Box
             sx={{
               display: "flex",
