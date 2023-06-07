@@ -11,8 +11,8 @@ import {
   Typography,
 } from "@mui/material";
 import { useNavigate } from "react-router";
-import { captalize } from "../utils/captalize";
 import axios from "axios";
+import Pokeico from "../assets/pokeico.png";
 
 export const Profile = ({ pokemonData }) => {
   const [loading, setLoading] = React.useState(true);
@@ -26,8 +26,6 @@ export const Profile = ({ pokemonData }) => {
       setLoading(false);
     });
   };
-
-  console.log({ url, pokemonData });
 
   useEffect(() => {
     if (!pokemonData) {
@@ -49,7 +47,7 @@ export const Profile = ({ pokemonData }) => {
     <>
       <Navbar hideSearch />
       <Container maxWidth="md">
-        <Paper sx={{ border: 1 }} elevation={3}>
+        <Paper sx={{border: 1}} elevation={3}>
           <Box
             display="flex"
             flexDirection="column"
@@ -65,7 +63,15 @@ export const Profile = ({ pokemonData }) => {
                 textTransform: "capitalize",
               }}
             >
-              {pokemon.name}
+              <Box
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+                flexDirection="row"
+              >
+                <img style={{ width: 30, marginRight: 10 }} src={Pokeico}></img>
+                {pokemon.name}
+              </Box>
             </Typography>
             <Box
               display="flex"
@@ -133,6 +139,7 @@ export const Profile = ({ pokemonData }) => {
             </Box>
           </Box>
         </Paper>
+        <Box sx={{ pb: 4, marginTop: 1}}></Box>
       </Container>
     </>
   );

@@ -84,7 +84,7 @@ export default function PokemonTable({ pokemonData }) {
                 justifyContent: "center",
               }}
             >
-              {height + "cm"}
+              {height + "dm"}
             </TableCell>
           </TableRow>
           <TableRow sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>
@@ -108,7 +108,7 @@ export default function PokemonTable({ pokemonData }) {
                 justifyContent: "center",
               }}
             >
-              {weight + "g"}
+              {weight + "hg"}
             </TableCell>
           </TableRow>
           <TableRow sx={{ "&:last-child td, &:last-child th": { border: 0 } }}>

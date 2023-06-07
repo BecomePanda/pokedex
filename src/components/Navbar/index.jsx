@@ -54,7 +54,7 @@ export default function Navbar({ pokemonFilter, hideSearch }) {
   const navigate = useNavigate();
   return (
     <Box sx={{ flexGrow: 1, marginBottom: "2em" }}>
-      <AppBar position="static" sx={{ backgroundColor: "#000000" }}>
+      <AppBar position="static" sx={{ backgroundColor: "#121212" }}>
         <Toolbar>
           <Box display="flex" justifyContent="space-between" width="100%">
             <Box
